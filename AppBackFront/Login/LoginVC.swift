@@ -12,6 +12,7 @@ class LoginVC: UIViewController {
     
     var loginScreen: LoginScreen?
     var auth: Auth?
+    var alert: AlertController?
     
     
     override func loadView() {
@@ -22,6 +23,7 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         auth = Auth.auth()
+        alert = AlertController(controller: self)
         dismissKeyBoard()
         loginScreen?.delegate(delegate: self)
         loginScreen?.configTextFieldsDelegate(delegate: self)
@@ -51,7 +53,7 @@ extension LoginVC: LoginScreenProtocol {
         if let email = loginScreen?.emailTextField.text, let password = loginScreen?.passwordTextField.text {
             auth?.signIn(withEmail: email, password: password, completion: { user, error in
                 if error != nil {
-                    print(error?.localizedDescription ?? "")
+                    self.alert?.getAlert(title: "Erro!", message: "Credenciais inválidas!")
                 } else {
                     print("deu bom")
                 }
