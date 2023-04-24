@@ -55,7 +55,7 @@ extension LoginVC: LoginScreenProtocol {
                 if error != nil {
                     self.alert?.getAlert(title: "Erro!", message: "Credenciais inválidas!")
                 } else {
-                    print("deu bom")
+                    print("credenciais corretas")
                 }
             })
         }
