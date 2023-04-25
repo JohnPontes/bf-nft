@@ -13,6 +13,8 @@
 		231D0C9729A6E47500CF858A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 231D0C9629A6E47500CF858A /* Assets.xcassets */; };
 		231D0C9A29A6E47500CF858A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231D0C9829A6E47500CF858A /* LaunchScreen.storyboard */; };
 		231D0CA429A6E6D800CF858A /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D0CA329A6E6D800CF858A /* LoginScreen.swift */; };
+		233D593B29F776CC00048E60 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233D593A29F776CC00048E60 /* TabBarVC.swift */; };
+		233D593F29F7778F00048E60 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233D593E29F7778F00048E60 /* HomeVC.swift */; };
 		237255A829EE3B8200F5511B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237255A729EE3B8200F5511B /* String+Extension.swift */; };
 		237255AB29F623B200F5511B /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237255AA29F623B200F5511B /* AlertController.swift */; };
 		23B8D46F29EC7507004312DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23B8D46E29EC7507004312DA /* GoogleService-Info.plist */; };
@@ -30,6 +32,8 @@
 		231D0C9929A6E47500CF858A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		231D0C9B29A6E47500CF858A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		231D0CA329A6E6D800CF858A /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		233D593A29F776CC00048E60 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		233D593E29F7778F00048E60 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		237255A729EE3B8200F5511B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		237255AA29F623B200F5511B /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		23B8D46E29EC7507004312DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -68,10 +72,11 @@
 		231D0C8C29A6E47300CF858A /* AppBackFront */ = {
 			isa = PBXGroup;
 			children = (
-				237255A929F623A700F5511B /* Alert */,
 				23B8D47929EC7CDA004312DA /* App */,
+				233D593C29F7773400048E60 /* Feature */,
+				233D593929F776AB00048E60 /* TabBarController */,
+				237255A929F623A700F5511B /* Alert */,
 				23B8D47529EC77F6004312DA /* Utils */,
-				231D0CA129A6E68E00CF858A /* Login */,
 				231D0C9829A6E47500CF858A /* LaunchScreen.storyboard */,
 				231D0C9629A6E47500CF858A /* Assets.xcassets */,
 				23B8D46E29EC7507004312DA /* GoogleService-Info.plist */,
@@ -95,6 +100,31 @@
 				231D0CA329A6E6D800CF858A /* LoginScreen.swift */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		233D593929F776AB00048E60 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				233D593A29F776CC00048E60 /* TabBarVC.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		233D593C29F7773400048E60 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				233D593D29F7775900048E60 /* Home */,
+				231D0CA129A6E68E00CF858A /* Login */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		233D593D29F7775900048E60 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				233D593E29F7778F00048E60 /* HomeVC.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		237255A929F623A700F5511B /* Alert */ = {
@@ -212,9 +242,11 @@
 				231D0C9229A6E47300CF858A /* LoginVC.swift in Sources */,
 				231D0CA429A6E6D800CF858A /* LoginScreen.swift in Sources */,
 				231D0C8E29A6E47300CF858A /* AppDelegate.swift in Sources */,
+				233D593F29F7778F00048E60 /* HomeVC.swift in Sources */,
 				23B8D47829EC7825004312DA /* UIViewController+Extension.swift in Sources */,
 				237255A829EE3B8200F5511B /* String+Extension.swift in Sources */,
 				231D0C9029A6E47300CF858A /* SceneDelegate.swift in Sources */,
+				233D593B29F776CC00048E60 /* TabBarVC.swift in Sources */,
 				237255AB29F623B200F5511B /* AlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
