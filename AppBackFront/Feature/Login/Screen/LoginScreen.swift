@@ -15,6 +15,16 @@ class LoginScreen: UIView {
     
     private weak var delegate: LoginScreenProtocol?
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addElements()
+        configConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public func delegate(delegate: LoginScreenProtocol?) {
         self.delegate = delegate
     }
@@ -158,16 +168,6 @@ class LoginScreen: UIView {
         return label
     }()
     
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addElements()
-        configConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     private func addElements() {
         addSubview(subImageView)
