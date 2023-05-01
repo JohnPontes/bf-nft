@@ -51,7 +51,7 @@ class HomeScreen: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = UIColor(red: 26/255, green: 26/255, blue: 1/255, alpha: 1.0)
-        //TODO: REGISTER
+        collectionView.register(NftFilterCollectionViewCell.self, forCellWithReuseIdentifier: NftFilterCollectionViewCell.identifier)
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         layout.scrollDirection = .horizontal
@@ -70,17 +70,17 @@ class HomeScreen: UIView {
         return tableView
     }()
     
-    func configTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
+    public func configTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
         tableView.delegate = delegate
         tableView.dataSource = dataSource
     }
     
-    func configCollectionViewProtocols(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+    public func configCollectionViewProtocols(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
         collectionView.delegate = delegate
         collectionView.dataSource = dataSource
     }
     
-    func configSearchBarProtocols(delegate: UISearchBarDelegate) {
+    public func configSearchBarProtocols(delegate: UISearchBarDelegate) {
         searchBar.delegate = delegate
     }
     
@@ -97,7 +97,7 @@ class HomeScreen: UIView {
             viewBackGround.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             viewBackGround.leadingAnchor.constraint(equalTo: leadingAnchor),
             viewBackGround.trailingAnchor.constraint(equalTo: trailingAnchor),
-            viewBackGround.heightAnchor.constraint(equalToConstant: 220),
+            viewBackGround.heightAnchor.constraint(equalToConstant: 160),
             
             logoImageView.topAnchor.constraint(equalTo: viewBackGround.topAnchor, constant: 8),
             logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
