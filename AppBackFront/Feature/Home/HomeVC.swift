@@ -32,7 +32,11 @@ class HomeVC: UIViewController {
 extension HomeVC: HomeViewModelProtocol {
     func success() {
         print(#function)
-        homeScreen?.configCollectionViewProtocols(delegate: self, dataSource: self)
+        DispatchQueue.main.async {
+            self.homeScreen?.configCollectionViewProtocols(delegate: self, dataSource: self)
+            self.homeScreen?.configTableViewProtocols(delegate: self, dataSource: self)
+            self.homeScreen?.tableView.reloadData()
+        }
     }
     
     func error() {
@@ -56,4 +60,23 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return homeViewModel?.sizeForItemAt ?? CGSize()
     }
+}
+
+extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return homeViewModel?.numberOfRowsInSection ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NftTableViewCell.identifier, for: indexPath) as? NftTableViewCell
+        
+        cell?.setupCell(data:homeViewModel?.loadCurrentNft(index: indexPath) ?? Nft())
+        return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return homeViewModel?.heightForRowAt ?? CGFloat()
+    }
+    
+    
 }
