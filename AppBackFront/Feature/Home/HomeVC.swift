@@ -24,6 +24,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeViewModel = HomeViewModel()
+        homeScreen?.configSearchBarProtocols(delegate: self)
         homeViewModel?.delegate(delegate: self)
         homeViewModel?.fetchRequest(.request)
     }
@@ -77,6 +78,16 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return homeViewModel?.heightForRowAt ?? CGFloat()
     }
-    
-    
 }
+
+extension HomeVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        homeViewModel?.filterSearchText(text: searchText)
+        homeScreen?.tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print(#function)
+    }
+}
+
