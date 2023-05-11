@@ -78,15 +78,51 @@ class HomeViewModel {
     
     //MARK: FILTER
     
+    var typeFilter: Int? {
+        return searchNftData?.filterListNft?.first(where: {$0.isSelected == true})?.id
+    }
+    
     public func filterSearchText(text: String) {
-        if !text.isEmpty {
-            searchNftData?.nftList = nftData?.nftList?.filter({ nft in
-                return nft.userName?.lowercased().contains(text.lowercased()) ?? false
-            })
+        var nftList: [Nft] = []
+        
+        if typeFilter == 0 {
+            nftList = nftData?.nftList ?? []
         } else {
-            searchNftData?.nftList = nftData?.nftList
+            nftList = nftData?.nftList?.filter({ nft in
+                return nft.type == typeFilter ?? 0
+            }) ?? []
+        }
+        
+        if !text.isEmpty {
+            searchNftData?.nftList = nftList.filter({ nft in
+                return nft.userName?.lowercased().starts(with: text.lowercased()) ?? false
+//                return nft.userName?.lowercased().contains(text.lowercased()) ?? false
+            })
+            
+            nftList.forEach({ nft in
+                if nft.userName?.lowercased().contains(text.lowercased()) ?? false &&
+                    !(nft.userName?.lowercased().starts(with:text.lowercased()) ?? false) {
+                    searchNftData?.nftList?.append(nft)
+                }
+            })
+            
+        } else {
+            searchNftData?.nftList = nftList
         }
 
+    }
+    
+    
+    public func setFilter(indexPath: IndexPath, searchText: String) {
+        var filterNft: [FilterNft] = []
+        
+        for (index, value) in (searchNftData?.filterListNft ?? []).enumerated() {
+            var type = value
+            type.isSelected = index == indexPath.row
+            filterNft.append(type)
+        }
+        searchNftData?.filterListNft = filterNft
+        filterSearchText(text: searchText)
     }
     
 }
