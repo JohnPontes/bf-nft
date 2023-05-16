@@ -1,16 +1,14 @@
 //
-//  NftImageTableViewCell.swift
+//  NftDescriptionTableViewCell.swift
 //  AppBackFront
 //
 //  Created by John Pontes on 15/05/23.
 //
 
 import UIKit
-import AlamofireImage
 
-class NftImageTableViewCell: UITableViewCell {
-    
-    static let identifier: String = String(describing: NftImageTableViewCell.self)
+class NftDescriptionTableViewCell: UITableViewCell {
+    static let identifier: String = String(describing: NftDescriptionTableViewCell.self)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,8 +20,8 @@ class NftImageTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    lazy var screen: NftImageTableViewCellScreen = {
-        let view = NftImageTableViewCellScreen()
+    lazy var screen: NftDescriptionTableViewCellScreen = {
+        let view = NftDescriptionTableViewCellScreen()
         view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
@@ -43,11 +41,9 @@ class NftImageTableViewCell: UITableViewCell {
         ])
     }
     
-    public func setupCell(urlImage: String, delegate: NftImageTableViewCellScreenDelegate) {
-        if let url: URL = URL(string: urlImage) {
-            screen.imageView.af.setImage(withURL: url)
-            screen.delegate(delegate: delegate)
-        }
+    public func setupCell(id: Int, title: String, description: String) {
+        screen.idLabel.text = "#\(id)"
+        screen.titleLabel.text = title
+        screen.descriptionLabel.text = description
     }
-
 }

@@ -7,7 +7,18 @@
 
 import UIKit
 
+protocol NftImageTableViewCellScreenDelegate: AnyObject {
+    func tappedCloseButton()
+    func tappedMagnifyingGlassButton()
+}
+
 class NftImageTableViewCellScreen: UIView {
+    
+    private weak var delegate: NftImageTableViewCellScreenDelegate?
+    
+    public func delegate(delegate: NftImageTableViewCellScreenDelegate) {
+        self.delegate = delegate
+    }
     
     lazy var imageView: UIImageView = {
         let img = UIImageView()
@@ -55,11 +66,11 @@ class NftImageTableViewCellScreen: UIView {
     }
     
     @objc private func tappedCloseButton() {
-        print(#function)
+        delegate?.tappedCloseButton()
     }
     
     @objc private func tappedmagnifyingGlassButton() {
-        print(#function)
+        delegate?.tappedMagnifyingGlassButton()
     }
     
     private func addViews() {
