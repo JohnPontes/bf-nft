@@ -89,6 +89,15 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return homeViewModel?.heightForRowAt ?? CGFloat()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let dataCurrent = homeViewModel?.loadCurrentNft(index: indexPath) {
+            let nftDetail = NftDetailVC(nft: dataCurrent)
+            present(nftDetail, animated: true)
+        }
+        
+        
+    }
 }
 
 extension HomeVC: UISearchBarDelegate {
