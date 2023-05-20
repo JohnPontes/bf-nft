@@ -10,6 +10,7 @@ import UIKit
 enum NameCellNftDetail: Int {
     case nftImage = 0
     case description = 1
+    case lastestDeal = 2
 }
 
 class NftDetailVC: UIViewController {
@@ -56,6 +57,11 @@ extension NftDetailVC: UITableViewDelegate, UITableViewDataSource {
             cell?.setupCell(id: viewModel.idNft, title: viewModel.titleNft, description: viewModel.descriptionNft)
             return cell ?? UITableViewCell()
             
+        case .lastestDeal:
+            let cell = tableView.dequeueReusableCell(withIdentifier: LastestDealTableViewCell.identifier, for: indexPath) as? LastestDealTableViewCell
+            cell?.setupCell(data: viewModel.nft)
+            return cell ?? UITableViewCell()
+            
         default:
             return UITableViewCell()
         }
@@ -64,7 +70,7 @@ extension NftDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
+        viewModel.heightForRowAt(indexPath: indexPath, width: view.frame.width)
     }
     
 }
