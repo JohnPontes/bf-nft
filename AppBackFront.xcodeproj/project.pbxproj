@@ -46,6 +46,8 @@
 		23B8D47229EC75D7004312DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 23B8D47129EC75D7004312DA /* FirebaseAuth */; };
 		23B8D47429EC75D7004312DA /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 23B8D47329EC75D7004312DA /* FirebaseCrashlytics */; };
 		23B8D47829EC7825004312DA /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B8D47729EC7825004312DA /* UIViewController+Extension.swift */; };
+		23F2C5372A1C4E4C0022DD52 /* MagnifyingGlassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F2C5362A1C4E4C0022DD52 /* MagnifyingGlassVC.swift */; };
+		23F2C53A2A1C4E760022DD52 /* MagnifyingGlassScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F2C5392A1C4E760022DD52 /* MagnifyingGlassScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		239E7E5E2A19881B00E91D5A /* CACornerMask+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CACornerMask+Extension.swift"; sourceTree = "<group>"; };
 		23B8D46E29EC7507004312DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		23B8D47729EC7825004312DA /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		23F2C5362A1C4E4C0022DD52 /* MagnifyingGlassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnifyingGlassVC.swift; sourceTree = "<group>"; };
+		23F2C5392A1C4E760022DD52 /* MagnifyingGlassScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnifyingGlassScreen.swift; sourceTree = "<group>"; };
 		D8234F15BFF840AD1B73B28A /* Pods-AppBackFront.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppBackFront.release.xcconfig"; path = "Target Support Files/Pods-AppBackFront/Pods-AppBackFront.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,6 +227,7 @@
 		233D593C29F7773400048E60 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				23F2C5352A1C4E220022DD52 /* MagnifyingGlass */,
 				2316B7772A11D89B0058AB9D /* NftDetail */,
 				23651BC229FF57AE0025A64D /* Cells */,
 				233D593D29F7775900048E60 /* Home */,
@@ -424,6 +429,23 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		23F2C5352A1C4E220022DD52 /* MagnifyingGlass */ = {
+			isa = PBXGroup;
+			children = (
+				23F2C5382A1C4E5C0022DD52 /* Screen */,
+				23F2C5362A1C4E4C0022DD52 /* MagnifyingGlassVC.swift */,
+			);
+			path = MagnifyingGlass;
+			sourceTree = "<group>";
+		};
+		23F2C5382A1C4E5C0022DD52 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				23F2C5392A1C4E760022DD52 /* MagnifyingGlassScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
 		5617690AC54EBEFB29DC22A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -573,8 +595,10 @@
 				233D593F29F7778F00048E60 /* HomeVC.swift in Sources */,
 				23B8D47829EC7825004312DA /* UIViewController+Extension.swift in Sources */,
 				23651BC429FF57C60025A64D /* NftFilterCollectionViewCell.swift in Sources */,
+				23F2C53A2A1C4E760022DD52 /* MagnifyingGlassScreen.swift in Sources */,
 				23651BC929FF59210025A64D /* NftFilterCollectionViewCellScreen.swift in Sources */,
 				237298F92A13091600ECF01C /* NftDescriptionTableViewCellScreen.swift in Sources */,
+				23F2C5372A1C4E4C0022DD52 /* MagnifyingGlassVC.swift in Sources */,
 				2357B12029FB3E3C00384506 /* GenericService.swift in Sources */,
 				2357B11D29FB3DFB00384506 /* HomeService.swift in Sources */,
 				237298F32A12FB1300ECF01C /* NftImageTableViewCellScreen.swift in Sources */,
