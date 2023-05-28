@@ -10,7 +10,6 @@ import AlamofireImage
 
 class ListOffersTableViewCell: UITableViewCell {
 
-
     static let identifier: String = String(describing: ListOffersTableViewCell.self)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
