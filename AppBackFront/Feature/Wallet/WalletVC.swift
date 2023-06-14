@@ -9,6 +9,7 @@ import UIKit
 
 enum WalletNameCell: Int {
     case quotationEth = 0
+    case transactionList = 1
 }
 
 class WalletVC: UIViewController {
@@ -51,9 +52,23 @@ extension WalletVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: QuotationEthTableViewCell.identifier, for: indexPath) as? QuotationEthTableViewCell
-        cell?.setupCell(data: viewModel.loadCurrentQuotationEthereum(indexPath: indexPath))
-        return cell ?? UITableViewCell()
+        switch WalletNameCell(rawValue: indexPath.row) {
+        case .quotationEth:
+            let cell = tableView.dequeueReusableCell(withIdentifier: QuotationEthTableViewCell.identifier, for: indexPath) as? QuotationEthTableViewCell
+            cell?.setupCell(data: viewModel.quotationEthereum)
+            return cell ?? UITableViewCell()
+            
+        case .transactionList:
+            let cell = tableView.dequeueReusableCell(withIdentifier: LatestTransactionsTableViewCell.identifier, for: indexPath) as? LatestTransactionsTableViewCell
+            cell?.setupCell(data: viewModel.latestTransactionCell)
+            return cell ?? UITableViewCell()
+            
+        default:
+            return UITableViewCell()
+        }
+        
+
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

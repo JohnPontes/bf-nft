@@ -17,7 +17,6 @@ class HomeService: HomeServiceDelegate {
     func getHome(completion: @escaping completion<NFTData?>) {
         let url: String = "https://run.mocky.io/v3/fc6566e9-fbc5-4dbb-a1b2-750a58b6c3ab"
         AF.request(url, method: .get).validate(statusCode: 200...299).responseDecodable(of: NFTData.self) { response in
-            debugPrint(response)
             switch response.result {
             case .success(let success):
                 print("SUCESS -> \(#function)")
